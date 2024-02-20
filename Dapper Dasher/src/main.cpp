@@ -2,6 +2,7 @@
 #include <raymath.h>
 #include "view.h"
 #include "shapes.h"
+#include  "shape_controller.h"
 
 int main()
 {
@@ -10,18 +11,16 @@ int main()
     InitWindow(Viewport.Width, Viewport.Height, "Dapper Dasher!");
     SetTargetFPS(120);
 
-    Shape rectangle(&Viewport, 100, 300);
+    Shape rectangle(&Viewport, 24, 48);
+    ShapeController rectangleController(&rectangle);
 
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(RAYWHITE);
 
+        rectangleController.UpdateMovement(&Viewport);
         DrawRectangle(rectangle.positionX, rectangle.positionY, rectangle.width, rectangle.height, BLACK);
-        DrawLine(rectangle.positionX, rectangle.positionY, 0, 0, RED);
-        DrawLine(rectangle.positionX + rectangle.width, rectangle.positionY, Viewport.Width, 0, RED);
-        DrawLine(rectangle.positionX + rectangle.width, rectangle.positionY + rectangle.height, Viewport.Width, Viewport.Height, RED);
-        DrawLine(rectangle.positionX, rectangle.positionY + rectangle.height, 0, Viewport.Height, RED);
-
+        
         EndDrawing();
     }
     
