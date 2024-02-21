@@ -1,8 +1,6 @@
-#include "shapes.h"
-#include <iostream>
-using namespace std;
+#include "character.h"
 
-Shape::Shape()
+Character::Character()
 {
     speed = 5;
     velocity = 0;
@@ -15,7 +13,7 @@ Shape::Shape()
     positionY = 90;
 }
 
-Shape::Shape(View* Viewport)
+Character::Character(View* Viewport)
 {
     speed = 5;
     velocity = 0;
@@ -28,7 +26,7 @@ Shape::Shape(View* Viewport)
     positionY = Viewport->Center.Y - (height / 2);
 }
 
-Shape::Shape(View* Viewport, int newWidth, int newHeight)
+Character::Character(View* Viewport, int newWidth, int newHeight)
 {
     speed = 5;
     velocity = 0;

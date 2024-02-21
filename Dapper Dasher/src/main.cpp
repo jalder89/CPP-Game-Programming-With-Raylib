@@ -1,8 +1,8 @@
 #include <raylib.h>
 #include <raymath.h>
 #include "view.h"
-#include "shapes.h"
-#include  "shape_controller.h"
+#include "character.h"
+#include  "character_controller.h"
 
 int main()
 {
@@ -11,15 +11,15 @@ int main()
     InitWindow(Viewport.Width, Viewport.Height, "Dapper Dasher!");
     SetTargetFPS(120);
 
-    Shape rectangle(&Viewport, 24, 48);
-    ShapeController rectangleController(&rectangle);
+    Character character(&Viewport, 24, 48);
+    CharacterController characterController(&character);
 
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(RAYWHITE);
 
-        rectangleController.UpdateMovement(&Viewport);
-        DrawRectangle(rectangle.positionX, rectangle.positionY, rectangle.width, rectangle.height, BLACK);
+        characterController.UpdateMovement(&Viewport);
+        DrawRectangle(character.positionX, character.positionY, character.width, character.height, BLACK);
         
         EndDrawing();
     }

@@ -1,7 +1,7 @@
 #pragma once
 #include "view.h"
 
-class Shape
+class Character
 {
 public:
     int width;
@@ -12,7 +12,7 @@ public:
     float velocity;
     float jumpVelocity;
 
-    Shape();
-    Shape(View* Viewport);
-    Shape(View* Viewport, int newWidth, int newHeight);
+    Character();
+    Character(View* Viewport);
+    Character(View* Viewport, int newWidth, int newHeight);
 };
