@@ -2,39 +2,40 @@
 
 Character::Character()
 {
+    texture = LoadTexture("assets/textures/scarfy.png");
+    
     speed = 5;
     velocity = 0;
     jumpVelocity = 5;
 
-    width = 50;
-    height = 120;
+    width = 128;
+    height = 128;
 
-    positionX = 160;
-    positionY = 90;
+    characterRectangle.width = texture.width / 6;
+    characterRectangle.height = texture.height;
+    characterRectangle.x = 0;
+    characterRectangle.y = 0;
+
+    characterPosition.x = 160;
+    characterPosition.y = 90;
 }
 
 Character::Character(View* Viewport)
 {
+    texture = LoadTexture("assets/textures/scarfy.png");
+    
     speed = 5;
     velocity = 0;
     jumpVelocity = 5;
 
-    width = 50;
-    height = 80;
+    width = 128;
+    height = 128;
 
-    positionX = Viewport->Center.X - (width / 2);
-    positionY = Viewport->Center.Y - (height / 2);
-}
+    characterRectangle.width = texture.width / 6;
+    characterRectangle.height = texture.height;
+    characterRectangle.x = 0;
+    characterRectangle.y = 0;
 
-Character::Character(View* Viewport, int newWidth, int newHeight)
-{
-    speed = 5;
-    velocity = 0;
-    jumpVelocity = 5;
-
-    width = newWidth;
-    height = newHeight;
-
-    positionX = Viewport->Center.X - (width / 2);
-    positionY = Viewport->Center.Y - (height / 2);
+    characterPosition.x = Viewport->Center.X - (characterRectangle.width / 2);
+    characterPosition.y = Viewport->Center.Y - (characterRectangle.height / 2);
 }

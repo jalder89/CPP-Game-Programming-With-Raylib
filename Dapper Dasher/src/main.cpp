@@ -2,7 +2,7 @@
 #include <raymath.h>
 #include "view.h"
 #include "character.h"
-#include  "character_controller.h"
+#include "character_controller.h"
 
 int main()
 {
@@ -11,7 +11,7 @@ int main()
     InitWindow(Viewport.Width, Viewport.Height, "Dapper Dasher!");
     SetTargetFPS(120);
 
-    Character character(&Viewport, 24, 48);
+    Character character(&Viewport);
     CharacterController characterController(&character);
 
     while (!WindowShouldClose()) {
@@ -19,7 +19,6 @@ int main()
         ClearBackground(RAYWHITE);
 
         characterController.UpdateMovement(&Viewport);
-        DrawRectangle(character.positionX, character.positionY, character.width, character.height, BLACK);
         
         EndDrawing();
     }

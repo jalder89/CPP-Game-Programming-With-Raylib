@@ -1,4 +1,5 @@
 #pragma once
+#include <raylib.h>
 #include "view.h"
 
 class Character
@@ -6,13 +7,14 @@ class Character
 public:
     int width;
     int height;
-    int positionX;
-    int positionY;
     int speed;
     float velocity;
     float jumpVelocity;
+    Texture2D texture;
+    Vector2 characterPosition;
+    Rectangle characterRectangle;
+    
 
     Character();
     Character(View* Viewport);
-    Character(View* Viewport, int newWidth, int newHeight);
 };

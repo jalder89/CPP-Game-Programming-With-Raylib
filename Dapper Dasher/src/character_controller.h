@@ -15,5 +15,6 @@ public:
 
     bool GroundCheck(View* Viewport);
     void UpdateMovement(View* Viewport);
-    void ApplyGravity();
+    void ApplyGravity(View* Viewport);
+    void UpdateTexture(Character* characterPtr);
 };
