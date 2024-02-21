@@ -9,4 +9,5 @@ View::View()
     // Center of Viewport at scale
     Center.X = Width / 2;
     Center.Y = Height / 2;
+    deltaTime = 0.f;
 }

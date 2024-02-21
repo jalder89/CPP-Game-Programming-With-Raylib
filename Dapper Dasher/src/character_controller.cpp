@@ -18,17 +18,17 @@ void CharacterController::UpdateMovement(View* Viewport)
 
     if (IsKeyDown(KEY_A) && characterPtr->characterPosition.x > 0)
     {
-        characterPtr->characterPosition.x -= characterPtr->speed;
+        characterPtr->characterPosition.x -= characterPtr->moveVelocity * Viewport->deltaTime;
     }
 
     if (IsKeyDown(KEY_D) && characterPtr->characterPosition.x < Viewport->Width - characterPtr->characterRectangle.width)
     {
-        characterPtr->characterPosition.x += characterPtr->speed;
+        characterPtr->characterPosition.x += characterPtr->moveVelocity * Viewport->deltaTime;
     }
 
     if (IsKeyPressed(KEY_SPACE) && isGrounded)
     {
-        characterPtr->velocity += -characterPtr->jumpVelocity;
+        characterPtr->velocity.y += -characterPtr->jumpVelocity;
         isGrounded = false;
     }
 
@@ -43,16 +43,15 @@ void CharacterController::ApplyGravity(View* Viewport)
     // Should help avoid character sticking in the ground after collision.
     if (isGrounded)
     {
-        characterPtr->velocity = 0;
+        characterPtr->velocity.y = 0;
         characterPtr->characterPosition.y = Viewport->Height - characterPtr->characterRectangle.height;
     } 
     else
     {
         // Fall: Acceleration due to gravity. (Pixels/Frame)/Frame
-        characterPtr->velocity += gravity * GetFrameTime();
+        characterPtr->velocity.y += gravity * Viewport->deltaTime;
     }
-
-    characterPtr->characterPosition.y += characterPtr->velocity;
+    characterPtr->characterPosition.y += characterPtr->velocity.y * Viewport->deltaTime;
 }
 
 void CharacterController::UpdateTexture(Character* characterPtr)

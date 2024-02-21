@@ -12,5 +12,6 @@ public:
         int Y;
     };
     Center Center;
+    float deltaTime;
     View();
 };

@@ -4,9 +4,11 @@ Character::Character()
 {
     texture = LoadTexture("assets/textures/scarfy.png");
     
-    speed = 5;
-    velocity = 0;
-    jumpVelocity = 5;
+    velocity.x = 0;
+    velocity.y = 0;
+    velocityY = 0;
+    moveVelocity = 500;
+    jumpVelocity = 500;
 
     width = 128;
     height = 128;
@@ -20,13 +22,20 @@ Character::Character()
     characterPosition.y = 90;
 }
 
+Character::~Character()
+{
+    UnloadTexture(texture);
+}
+
 Character::Character(View* Viewport)
 {
     texture = LoadTexture("assets/textures/scarfy.png");
     
-    speed = 5;
-    velocity = 0;
-    jumpVelocity = 5;
+    velocity.x = 0;
+    velocity.y = 0;
+    velocityY = 0;
+    moveVelocity = 500;
+    jumpVelocity = 500;
 
     width = 128;
     height = 128;

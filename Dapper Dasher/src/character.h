@@ -7,8 +7,9 @@ class Character
 public:
     int width;
     int height;
-    int speed;
-    float velocity;
+    Vector2 velocity;
+    float velocityY;
+    float moveVelocity;
     float jumpVelocity;
     Texture2D texture;
     Vector2 characterPosition;
@@ -16,5 +17,6 @@ public:
     
 
     Character();
+    ~Character();
     Character(View* Viewport);
 };
