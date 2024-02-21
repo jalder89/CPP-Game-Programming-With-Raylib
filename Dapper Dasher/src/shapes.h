@@ -9,7 +9,8 @@ public:
     int positionX;
     int positionY;
     int speed;
-    int velocity;
+    float velocity;
+    float jumpVelocity;
 
     Shape();
     Shape(View* Viewport);
